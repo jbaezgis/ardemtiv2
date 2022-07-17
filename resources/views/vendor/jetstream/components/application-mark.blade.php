@@ -1,1 +1,1 @@
-<img class="h-12" src="{{ asset('images/logo.svg') }}" alt="Ardemti">
+<img class="h-16" src="{{ asset('images/logo.svg') }}" alt="Ardemti">

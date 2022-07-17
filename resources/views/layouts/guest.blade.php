@@ -34,7 +34,7 @@
     <body class="font-sans antialiased">
         <x-jet-banner />
 
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen">
             @livewire('guest-menu')
 
             <!-- Page Heading -->
@@ -51,6 +51,10 @@
                 {{ $slot }}
             </main>
         </div>
+
+        <footer>
+
+        </footer>
 
         @stack('modals')
 

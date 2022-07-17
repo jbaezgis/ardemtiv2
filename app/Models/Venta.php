@@ -11,13 +11,8 @@ class Venta extends Model
 {
     use HasFactory;
 
-    public function productos()
-    {
-        return $this->belongsToMany(Producto::class);
-    }
-
-    public function ventaItems()
-    {
-        return $this->belongsToMany(VentaItem::class);
-    }
+    protected $fillable = [
+        'fecha',
+        'total',
+    ];
 }

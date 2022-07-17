@@ -88,16 +88,22 @@
                         <x-slot name="content">
                             <div class="w-60">
                                 <!-- Team Management -->
-                                <div class="block px-4 py-2 text-xs text-gray-400">
-                                    {{ __('Mantenimientos') }}
-                                </div>
+                                {{-- <div class="block px-4 py-2 text-xs text-gray-400">
+                                    {{ __('Manage') }}
+                                </div> --}}
+                                <x-jet-dropdown-link href="{{ route('ventas') }}" class="{{ request()->routeIs('ventas') ? 'text-gray-700 bg-gray-200' : '' }}">
+                                    {{ __('Ventas') }}
+                                </x-jet-dropdown-link>
+                                <x-jet-dropdown-link href="{{ route('gastos') }}" class="{{ request()->routeIs('gastos') ? 'text-gray-700 bg-gray-200' : '' }}">
+                                    {{ __('Gastos') }}
+                                </x-jet-dropdown-link>
                                 <x-jet-dropdown-link href="{{ route('productos') }}" class="{{ request()->routeIs('productos') ? 'text-gray-700 bg-gray-200' : '' }}">
                                     {{ __('Productos') }}
                                 </x-jet-dropdown-link>
                                 <x-jet-dropdown-link href="{{ route('categorias') }}" class="{{ request()->routeIs('categorias') ? 'text-gray-700 bg-gray-200' : '' }}">
                                     {{ __('Categorías') }}
                                 </x-jet-dropdown-link>
-                                <x-jet-dropdown-link href="">
+                                {{-- <x-jet-dropdown-link href="">
                                     {{ __('Clientes') }}
                                 </x-jet-dropdown-link>
                                 <x-jet-dropdown-link href="">
@@ -105,7 +111,7 @@
                                 </x-jet-dropdown-link>
                                 <x-jet-dropdown-link href="">
                                     {{ __('Ubicaciones') }}
-                                </x-jet-dropdown-link>
+                                </x-jet-dropdown-link> --}}
 
                                 <div class="border-t border-gray-100"></div>
                                 <div class="block px-4 py-2 text-xs text-gray-400">
@@ -197,7 +203,7 @@
 
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-        <div class="pt-2 pb-3 space-y-1">
+        <div class="pt-2 pb-3 px-2 space-y-1 text-center">
             <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-jet-responsive-nav-link>

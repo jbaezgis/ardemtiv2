@@ -1,7 +1,7 @@
-@section('title', __('Ventas'))
+@section('title', __('Gastos'))
 <div>
     <div class="max-w-7xl mx-auto pt-6 px-2">
-        <h1 class="text-3xl font-bold text-gray-600 mb-4">Ventas</h1>
+        <h1 class="text-3xl font-bold text-gray-600 mb-4">Gastos</h1>
         <div class="flex justify-between p-2 bg-white rounded-t shadow">
             <div class="flex gap-2">
                 <x-jet-input id="search" class="block mt-1 w-full" type="date" name="search"
@@ -24,13 +24,14 @@
                 </div>
             </div>
         </div>
+
         <div class="flex gap-8 px-4 py-2 bg-gray-200 rounded-b mb-2 text-gray-600 text-sm">
             <div>
                 <div>
                     <strong>Hoy</strong>
                 </div>
                 <div class="text-lg">
-                    RD${{ number_format($ventasHoy, 2, '.', ',') }}
+                    RD${{ number_format($gastosHoy, 2, '.', ',') }}
                 </div>
             </div>
             <div>
@@ -38,7 +39,7 @@
                     <strong>Esta semana</strong>
                 </div>
                 <div class="text-lg">
-                    RD${{ number_format($ventasEstaSemana, 2, '.', ',') }}
+                    RD${{ number_format($gastosEstaSemana, 2, '.', ',') }}
                 </div>
             </div>
             <div>
@@ -46,7 +47,7 @@
                     <strong>Este mes</strong>
                 </div>
                 <div class="text-lg">
-                    RD${{ number_format($ventasEsteMes, 2, '.', ',') }}
+                    RD${{ number_format($gastosEsteMes, 2, '.', ',') }}
                 </div>
             </div>
             <div>
@@ -54,7 +55,7 @@
                     <strong>Este año</strong>
                 </div>
                 <div class="text-lg">
-                    RD${{ number_format($ventasEsteAno, 2, '.', ',') }}
+                    RD${{ number_format($gastosEsteAno, 2, '.', ',') }}
                 </div>
             </div>
         </div>
@@ -68,15 +69,17 @@
                         <th class="border-b font-medium p-4 pt-0 pb-3 text-gray-400 text-left">#</th>
                         <th class="border-b font-medium p-4 pt-0 pb-3 text-gray-400 text-left">Fecha</th>
                         <th class="border-b font-medium p-4 pt-0 pb-3 text-gray-400 text-left">Total</th>
+                        <th class="border-b font-medium p-4 pt-0 pb-3 text-gray-400 text-left">Observaciones</th>
                         <th class="border-b font-medium p-4 pt-0 pb-3 text-gray-400 text-left"></th>
                     </tr>
                   </thead>
                   <tbody class="bg-white">
-                    @foreach ($ventas as $item)
+                    @foreach ($gastos as $item)
                         <tr>
                             <td class="border-b border-gray-100 p-4 text-gray-500">{{ $item->id }}</td>
                             <td class="border-b border-gray-100 p-4 text-gray-500">{{ date('j F Y', strtotime($item->fecha)) }}</td>
                             <td class="border-b border-gray-100 p-4 text-gray-500">RD${{ number_format($item->total, 2, '.', ',') }}</td>
+                            <td class="border-b border-gray-100 p-4 text-gray-500">{{ $item->observaciones }}</td>
                             <td class="border-b border-gray-100 p-4 text-gray-500">
                                 <x-jet-button wire:click="updateShowModal({{ $item->id }})">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -116,10 +119,19 @@
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="total" value="{{ __('total') }}" />
+                <x-jet-label for="total" value="{{ __('Total') }}" />
                 <x-jet-input id="total" class="block mt-1 w-full" type="number" name="total"
                     wire:model.debounce.500ms="total" />
                 @error('total')
+                    <span class="error">{{ $message }}</span>
+                @enderror
+            </div>
+
+            <div class="mt-4">
+                <x-jet-label for="observaciones" value="{{ __('Observaciones') }}" />
+                <x-jet-input id="observaciones" class="block mt-1 w-full" type="text" name="observaciones"
+                    wire:model.debounce.500ms="observaciones" />
+                @error('observaciones')
                     <span class="error">{{ $message }}</span>
                 @enderror
             </div>

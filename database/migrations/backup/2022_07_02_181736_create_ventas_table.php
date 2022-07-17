@@ -15,8 +15,15 @@ class CreateVentasTable extends Migration
     {
         Schema::create('ventas', function (Blueprint $table) {
             $table->id();
-            $table->date('fecha')->nullable();
+            $table->integer('vendedor');
+            $table->integer('cliente');
+            $table->integer('tipo');
+            $table->integer('cant_productos')->nullable();
+            $table->double('sub_total',8,2)->nullable();
+            $table->double('descuento',8,2)->nullable();
+            $table->double('itbis',8,2)->nullable();
             $table->double('total',8,2)->nullable();
+            $table->double('total_sin_itbis',8,2)->nullable();
             $table->timestamps();
         });
     }

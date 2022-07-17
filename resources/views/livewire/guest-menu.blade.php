@@ -11,7 +11,7 @@
         </div>
 
         {{-- links --}}
-        <div class="flex gap-4 justify-center">
+        <div class="flex gap-2 justify-center">
             {{-- <x-nav-link href="{{ url('/') }}" :active="request()->is('/')">
                 {{ __('Inicio') }}
             </x-nav-link> --}}

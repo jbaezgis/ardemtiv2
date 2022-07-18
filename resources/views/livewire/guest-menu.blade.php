@@ -1,4 +1,4 @@
-<div class="py-2 bg-gray-50 border-b border-gray-600">
+<div class="py-2 bg-gray-50 border-b border-gray-300">
     <div class="max-w-7xl mx-auto flex justify-between px-2">
         <div class="flex gap-2">
             <div>
@@ -20,16 +20,18 @@
         </div>
     </div>
 </div>
-<nav x-data="{ open: false }" class="bg-gray-50">
+<nav x-data="{ open: false }" class="bg-gray-50 border-b">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
         <div class="flex justify-center">
             <div class="shrink-0 flex items-center">
                 <a href="{{ url('/') }}">
                     <x-jet-application-mark class="block h-9 w-auto" />
                 </a>
             </div>
+        </div>
+        <div class="text-xl text-center font-courgette text-gray-700">
+            Sabor y calidad en cada bocado!
         </div>
 
         {{-- links --}}

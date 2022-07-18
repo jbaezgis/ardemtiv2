@@ -23,7 +23,10 @@
         <meta property="og:image:url" content="@yield('og-image-url')" />
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+        {{-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap"> --}}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Acme&family=Anton&family=Courgette&family=Kaushan+Script&family=Lobster&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
 
         <!-- Styles -->
         @livewireStyles
@@ -31,7 +34,10 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans bg-gray-50 antialiased">
+        {{-- <div class="flex justify-center py-4">
+            <img class="h-32" src="{{ asset('images/logo-circle.png') }}" alt="Ardenti Logo">
+        </div> --}}
         <x-jet-banner />
 
         <div class="min-h-screen">

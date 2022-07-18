@@ -13,6 +13,12 @@ module.exports = {
         extend: {
             fontFamily: {
                 sans: ['Open Sans', ...defaultTheme.fontFamily.sans],
+                acme: "'Acme', sans-serif",
+                anton: "'Anton', sans-serif",
+                courgette: "'Courgette', cursive",
+                kaushan: "'Kaushan Script', cursive",
+                lobster: "'Lobster', cursive",
+                anton: "'Acme', sans-serif",
             },
         },
     },

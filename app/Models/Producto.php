@@ -15,9 +15,10 @@ class Producto extends Model
 
     protected $fillable = [
         'image',
+        'nombre',
         'descripcion',
         'precio',
-        'catgoria',
+        'categoria',
         'estado',
         'creado_por',
     ];
@@ -27,9 +28,9 @@ class Producto extends Model
         return $this->belongsTo(User::class, 'creado_por');
     }
 
-    public function categoria()
+    public function categoriaId()
     {
-        return $this->belongsTo(Categoria::class, 'catgoria');
+        return $this->belongsTo(Categoria::class, 'categoria');
     }
 
     public function items()

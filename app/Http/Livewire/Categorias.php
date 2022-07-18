@@ -17,7 +17,7 @@ class Categorias extends Component
     public $modalFormVisible = false;
     public $modalConfirmDelete = false;
     public $modelId;
-    public $nombre;
+    public $nombre, $orden;
     public $search;
 
     
@@ -31,6 +31,7 @@ class Categorias extends Component
     {
         return [
             'nombre' => 'required',
+            'orden' => 'required',
         ];
     }
 
@@ -50,6 +51,7 @@ class Categorias extends Component
         $data = Categoria::find($this->modelId);
         $this->modalFormVisible = true;
         $this->nombre = $data->nombre;
+        $this->orden = $data->orden;
     }
 
     public function deleteShowModal($id)
@@ -62,6 +64,7 @@ class Categorias extends Component
     {
         return [
             'nombre' => $this->nombre,
+            'orden' => $this->orden,
         ];
     }
 

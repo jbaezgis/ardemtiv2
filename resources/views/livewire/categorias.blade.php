@@ -75,7 +75,14 @@
                 @enderror
             </div>
             
-            
+            <div class="mt-4">
+                <x-jet-label for="orden" value="{{ __('Orden') }}" />
+                <x-jet-input id="orden" class="block mt-1 w-full" type="number" name="orden"
+                    wire:model.debounce.500ms="orden" />
+                @error('orden')
+                    <span class="error">{{ $message }}</span>
+                @enderror
+            </div>
             
         </x-slot>
 

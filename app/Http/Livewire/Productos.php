@@ -19,7 +19,7 @@ class Productos extends Component
     public $modalFormVisible = false;
     public $modalConfirmDelete = false;
     public $modelId;
-    public $imagen, $descripcion, $precio, $catgoria, $estado;
+    public $imagen, $nombre, $descripcion, $precio, $categoria, $estado;
     public $search;
     // public $searchCategoria;
     public $categorias;
@@ -32,9 +32,10 @@ class Productos extends Component
     public function rules()
     {
         return [
+            'nombre' => 'required',
             'descripcion' => 'required',
             'precio' => 'required',
-            'catgoria' => 'required',
+            'categoria' => 'required',
             'estado' => 'required',
         ];
     }
@@ -54,9 +55,10 @@ class Productos extends Component
         $this->modelId = $id;
         $data = Producto::find($this->modelId);
         $this->modalFormVisible = true;
+        $this->nombre = $data->nombre;
         $this->descripcion = $data->descripcion;
         $this->precio = $data->precio;
-        $this->catgoria = $data->catgoria;
+        $this->categoria = $data->categoria;
         $this->estado = $data->estado;
     }
 
@@ -69,9 +71,10 @@ class Productos extends Component
     public function modelData()
     {
         return [
+            'nombre' => $this->nombre,
             'descripcion' => $this->descripcion,
             'precio' => $this->precio,
-            'catgoria' => $this->catgoria,
+            'categoria' => $this->categoria,
             'estado' => $this->estado,
             'creado_por' => auth()->id(),
         ];
@@ -100,7 +103,7 @@ class Productos extends Component
             ->update($this->modelData());
         $this->dispatchBrowserEvent('event-notification', [
             'eventName' => 'Producto actualizado :D',
-            'eventMessage' => 'El producto "' . $this->descripcion . '" fue actualizado!'
+            'eventMessage' => 'El producto "' . $this->nombre . '" fue actualizado!'
         ]);
         $this->reset();
     }
@@ -120,7 +123,7 @@ class Productos extends Component
         $this->categorias = Categoria::all();
 
         return view('livewire.productos', [
-            'productos' => Producto::where('id', 'LIKE', "%{$this->search}%")->orWhere('descripcion', 'LIKE', "%{$this->search}%")->latest()->paginate(10),
+            'productos' => Producto::where('id', 'LIKE', "%{$this->search}%")->orWhere('nombre', 'LIKE', "%{$this->search}%")->latest()->paginate(10),
         ]);
     }
 }

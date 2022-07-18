@@ -25,7 +25,7 @@
                   <thead>
                     <tr>
                         <th class="border-b font-medium p-4 pt-0 pb-3 text-gray-400 text-left">#</th>
-                        <th class="border-b font-medium p-4 pt-0 pb-3 text-gray-400 text-left">Descripcion</th>
+                        <th class="border-b font-medium p-4 pt-0 pb-3 text-gray-400 text-left">Nombre</th>
                         <th class="border-b font-medium p-4 pt-0 pb-3 text-gray-400 text-left">Precio</th>
                         <th class="border-b font-medium p-4 pt-0 pb-3 text-gray-400 text-left">Categoría</th>
                         <th class="border-b font-medium p-4 pt-0 pb-3 text-gray-400 text-left">Estado</th>
@@ -37,9 +37,16 @@
                         @foreach ($productos as $item)
                             <tr>
                                 <td class="border-b border-gray-100 p-4 text-gray-500">{{ $item->id }}</td>
-                                <td class="border-b border-gray-100 p-4 text-gray-500">{{ $item->descripcion }}</td>
+                                <td class="border-b border-gray-100 p-4 text-gray-900">
+                                    <div>
+                                        {{ $item->nombre }}
+                                    </div>
+                                    <div class="text-xs">
+                                        {{ $item->descripcion }}
+                                    </div>
+                                </td>
                                 <td class="border-b border-gray-100 p-4 text-gray-500">RD${{ $item->precio }}.00</td>
-                                <td class="border-b border-gray-100 p-4 text-gray-500">{{ $item->categoria->nombre }}</td>
+                                <td class="border-b border-gray-100 p-4 text-gray-500">{{ $item->categoriaId->nombre }}</td>
                                 <td class="border-b border-gray-100 p-4 text-gray-500">
                                     @if ($item->estado == 1)
                                         <div class="p-1 font-semibold text-green-600 bg-green-200 text-center rounded shadow">Activo</div>
@@ -77,6 +84,15 @@
 
         <x-slot name="content">
             <div class="mt-4">
+                <x-jet-label for="nombre" value="{{ __('Nombre') }}" />
+                <x-jet-input id="nombre" class="block mt-1 w-full" type="text" name="nombre"
+                    wire:model.debounce.500ms="nombre" />
+                @error('nombre')
+                    <span class="error">{{ $message }}</span>
+                @enderror
+            </div>
+
+            <div class="mt-4">
                 <x-jet-label for="descripcion" value="{{ __('Descripcion') }}" />
                 <x-jet-input id="descripcion" class="block mt-1 w-full" type="text" name="descripcion"
                     wire:model.debounce.500ms="descripcion" />
@@ -95,14 +111,14 @@
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="catgoria" value="{{ __('Categoria') }}" />
-                <select id="catgoria"  class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" name="catgoria" wire:model.debounce.500ms="catgoria">
+                <x-jet-label for="categoria" value="{{ __('Categoria') }}" />
+                <select id="categoria"  class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" name="categoria" wire:model.debounce.500ms="categoria">
                     <option>Seleccionar</option>
                     @foreach ($categorias as $item)
                         <option value="{{ $item->id }}">{{ $item->nombre }}</option>   
                     @endforeach
                 </select>
-                @error('catgoria')
+                @error('categoria')
                     <span class="error">{{ $message }}</span>
                 @enderror
             </div>

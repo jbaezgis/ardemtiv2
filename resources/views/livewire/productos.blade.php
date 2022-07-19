@@ -29,7 +29,7 @@
                         <th class="border-b font-medium p-4 pt-0 pb-3 text-gray-400 text-left">Precio</th>
                         <th class="border-b font-medium p-4 pt-0 pb-3 text-gray-400 text-left">Categoría</th>
                         <th class="border-b font-medium p-4 pt-0 pb-3 text-gray-400 text-left">Estado</th>
-                        <th class="border-b font-medium p-4 pt-0 pb-3 text-gray-400 text-left">Creado por</th>
+                        {{-- <th class="border-b font-medium p-4 pt-0 pb-3 text-gray-400 text-left">Creado por</th> --}}
                         <th class="border-b font-medium p-4 pt-0 pb-3 text-gray-400 text-left"></th>
                     </tr>
                   </thead>
@@ -54,7 +54,7 @@
                                         <div class="p-1 font-semibold text-red-600 bg-red-200 text-center rounded shadow">Inactivo</div>
                                     @endif
                                 </td>
-                                <td class="border-b border-gray-100 p-4 text-gray-500">{{ $item->user->name }}</td>
+                                {{-- <td class="border-b border-gray-100 p-4 text-gray-500">{{ $item->user->name }}</td> --}}
                                 <td class="border-b border-gray-100 p-4 text-gray-500">
                                     <x-jet-button wire:click="updateShowModal({{ $item->id }})">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">

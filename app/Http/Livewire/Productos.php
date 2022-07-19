@@ -33,7 +33,7 @@ class Productos extends Component
     {
         return [
             'nombre' => 'required',
-            'descripcion' => 'required',
+            // 'descripcion' => 'required',
             'precio' => 'required',
             'categoria' => 'required',
             'estado' => 'required',

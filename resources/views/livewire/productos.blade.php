@@ -26,7 +26,7 @@
                 <table class="border-collapse table-auto w-full text-sm">
                   <thead>
                     <tr>
-                        <th class="border-b font-medium p-4 pt-0 pb-3 text-gray-400 text-left">#</th>
+                        {{-- <th class="border-b font-medium p-4 pt-0 pb-3 text-gray-400 text-left">#</th> --}}
                         <th class="border-b font-medium p-4 pt-0 pb-3 text-gray-400 text-left">Nombre</th>
                         <th class="border-b font-medium p-4 pt-0 pb-3 text-gray-400 text-left">Precio</th>
                         <th class="border-b font-medium p-4 pt-0 pb-3 text-gray-400 text-left">Categoría</th>
@@ -38,7 +38,7 @@
                     <tbody class="bg-white">
                         @foreach ($productos as $item)
                             <tr>
-                                <td class="border-b border-gray-100 p-4 text-gray-500">{{ $item->id }}</td>
+                                {{-- <td class="border-b border-gray-100 p-4 text-gray-500">{{ $item->id }}</td> --}}
                                 <td class="border-b border-gray-100 p-4 text-gray-900">
                                     <div>
                                         {{ $item->nombre }}

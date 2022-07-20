@@ -25,18 +25,18 @@
                 <table class="border-collapse table-auto w-full text-sm">
                   <thead>
                     <tr>
-                        <th class="border-b font-medium p-4 pt-0 pb-3 text-gray-400 text-left">#</th>
+                        {{-- <th class="border-b font-medium p-4 pt-0 pb-3 text-gray-400 text-left">#</th> --}}
                         <th class="border-b font-medium p-4 pt-0 pb-3 text-gray-400 text-left">Categoría</th>
-                        <th class="border-b font-medium p-4 pt-0 pb-3 text-gray-400 text-left">Creada en</th>
+                        <th class="border-b font-medium p-4 pt-0 pb-3 text-gray-400 text-left">Orden</th>
                         <th class="border-b font-medium p-4 pt-0 pb-3 text-gray-400 text-left"></th>
                     </tr>
                   </thead>
                   <tbody class="bg-white">
                     @foreach ($categorias as $item)
                         <tr>
-                            <td class="border-b border-gray-100 p-4 text-gray-500">{{ $item->id }}</td>
+                            {{-- <td class="border-b border-gray-100 p-4 text-gray-500">{{ $item->id }}</td> --}}
                             <td class="border-b border-gray-100 p-4 text-gray-500">{{ $item->nombre }}</td>
-                            <td class="border-b border-gray-100 p-4 text-gray-500">{{ $item->created_at }}</td>
+                            <td class="border-b border-gray-100 p-4 text-gray-500">{{ $item->orden }}</td>
                             <td class="border-b border-gray-100 p-4 text-gray-500">
                                 <x-jet-button wire:click="updateShowModal({{ $item->id }})">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">

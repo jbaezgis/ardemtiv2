@@ -109,7 +109,7 @@ class Categorias extends Component
     public function render()
     {
         return view('livewire.categorias', [
-            'categorias' => Categoria::where('id', 'LIKE', "%{$this->search}%")->orWhere('nombre', 'LIKE', "%{$this->search}%")->latest()->paginate(10),
+            'categorias' => Categoria::where('id', 'LIKE', "%{$this->search}%")->orWhere('nombre', 'LIKE', "%{$this->search}%")->orderBy('orden', 'asc')->paginate(10),
         ]);
     }
 }

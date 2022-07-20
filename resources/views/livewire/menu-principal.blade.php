@@ -22,7 +22,7 @@
             <div><img class="h-8" src="{{ asset('images/iconos/taco.png') }}" alt="taco"></div>
         </div>
 
-        <ul class="grid grid-cols-3 gap-x-5 m-10 mx-auto sm:grid-cols-6 md:grid-col-12">
+        <ul class="grid grid-cols-2 gap-x-5 m-10 mx-auto sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
             <li class="relative pb-4">
               <input wire:model="categoria" class="sr-only peer" type="radio" value="" name="todas" id="todas">
               <label class="flex py-2 px-4 bg-white border border-gray-300 rounded-lg cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:ring-green-500 peer-checked:ring-2 peer-checked:border-transparent" for="todas">Todo</label>

@@ -23,9 +23,11 @@ class MenuPrincipal extends Component
         $this->categorias = Categoria::where('nombre', 'LIKE', "%{$this->categoria}%")->whereHas('productos', function ($query) {
             $query->where('estado', 1);
         })->orderBy('orden', 'asc')->get();
+        
         $this->categoriasMenu = Categoria::whereHas('productos', function ($query) {
             $query->where('estado', 1);
         })->orderBy('orden', 'asc')->get();
+
         $this->productos = Producto::where('estado', 1)->get();
         return view('livewire.menu-principal')->layout('layouts.guest');
     }

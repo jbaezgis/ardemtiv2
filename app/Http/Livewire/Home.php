@@ -13,8 +13,10 @@ class Home extends Component
 
     public function render()
     {
-        $this->categorias = Categoria::get();
-        $this->productos = Producto::get();
+        $this->categorias = Categoria::whereHas('productos', function ($query) {
+            $query->where('estado', 1);
+        })->orderBy('orden', 'asc')->get();
+        $this->productos = Producto::where('estado', 1)->get();
         return view('livewire.home')->layout('layouts.guest');
     }
 }

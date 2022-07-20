@@ -18,6 +18,8 @@ class Productos extends Component
 
     public $modalFormVisible = false;
     public $modalConfirmDelete = false;
+    public $modalActivar = false;
+    public $modalInactivar = false;
     public $modelId;
     public $imagen, $nombre, $descripcion, $precio, $categoria, $estado;
     public $search;
@@ -115,6 +117,27 @@ class Productos extends Component
             'eventName' => 'Producto eliminado :,(',
             'eventMessage' => 'El producto "' . $this->modelId . '" fue eliminado!'
         ]);
+        $this->reset();
+    }
+
+    
+    public function activo($id)
+    {
+        Producto::where('id', $id)
+            ->update(['estado' => 1]);
+    }
+
+    public function inactivarShowModal($id)
+    {
+        $this->modelId = $id;
+        $this->modalInactivar = true;
+    }
+
+    public function inactivo()
+    {
+        Producto::where('id', $this->modelId)
+            ->update(['estado' => 0]);
+
         $this->reset();
     }
 

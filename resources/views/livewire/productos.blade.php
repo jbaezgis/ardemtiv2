@@ -18,6 +18,8 @@
             </div>
         </div>
 
+        
+
         {{-- table --}}
         <div>
             <div class="shadow-sm overflow-hidden my-8">
@@ -49,9 +51,9 @@
                                 <td class="border-b border-gray-100 p-4 text-gray-500">{{ $item->categoriaId->nombre }}</td>
                                 <td class="border-b border-gray-100 p-4 text-gray-500">
                                     @if ($item->estado == 1)
-                                        <div class="p-1 font-semibold text-green-600 bg-green-200 text-center rounded shadow">Activo</div>
+                                        <a wire:click="inactivarShowModal({{ $item->id }})" class="cursor-pointer py-1 px-2 font-semibold text-green-600 bg-green-200 text-center rounded shadow">Activo</a>
                                     @else
-                                        <div class="p-1 font-semibold text-red-600 bg-red-200 text-center rounded shadow">Inactivo</div>
+                                        <a wire:click="activo({{ $item->id }})" class="cursor-pointer py-1 px-2 font-semibold text-red-600 bg-red-200 text-center rounded shadow">Inactivo</a>
                                     @endif
                                 </td>
                                 {{-- <td class="border-b border-gray-100 p-4 text-gray-500">{{ $item->user->name }}</td> --}}
@@ -172,6 +174,27 @@
             <x-jet-danger-button class="ml-3" wire:click="delete" wire:loading.attr="disabled">
                 {{ __('Eliminar') }}
             </x-jet-danger-button>
+        </x-slot>
+    </x-jet-dialog-modal>
+
+    {{-- Activar Modal --}}
+    <x-jet-dialog-modal wire:model="modalInactivar">
+        <x-slot name="title">
+            {{ __('Inactivar Producto') }}
+        </x-slot>
+
+        <x-slot name="content">
+            {{ __('Estas seguro que deseas inactivar esta producto.') }}
+        </x-slot>
+
+        <x-slot name="footer">
+            <x-jet-secondary-button wire:click="$toggle('modalInactivar')" wire:loading.attr="disabled">
+                {{ __('Cancelar') }}
+            </x-jet-secondary-button>
+
+            <x-jet-button class="ml-3" wire:click="inactivo" wire:loading.attr="disabled">
+                {{ __('Inactivar') }}
+            </x-jet-button>
         </x-slot>
     </x-jet-dialog-modal>
 

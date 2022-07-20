@@ -34,7 +34,7 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans bg-gray-50 antialiased">
+    <body class="font-sans antialiased bg-gradient-to-r from-slate-900 via-slate-700 to-slate-800">
         {{-- <div class="flex justify-center py-4">
             <img class="h-32" src="{{ asset('images/logo-circle.png') }}" alt="Ardenti Logo">
         </div> --}}
@@ -58,7 +58,7 @@
             </main>
         </div>
 
-        <footer class="border-t border-gray-300 py-4">
+        <footer class="border-t bg-white py-4">
             <div class="text-xl text-center font-courgette text-gray-700">
                 Sabor y calidad en cada bocado!
             </div>

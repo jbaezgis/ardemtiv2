@@ -33,6 +33,7 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+
     </head>
     <body class="font-sans antialiased bg-gradient-to-r from-slate-900 via-slate-700 to-slate-800">
         {{-- <div class="flex justify-center py-4">
@@ -62,7 +63,7 @@
             <div class="text-xl text-center font-courgette text-gray-700">
                 Sabor y calidad en cada bocado!
             </div>
-            <div class="py-2 bg-gray-50 ">
+            <div class="py-2">
                 <div class="max-w-7xl mx-auto flex justify-center px-2 gap-6">
                     <div class="flex gap-2">
                         <div>

@@ -20,7 +20,7 @@
         <ul class="grid grid-cols-2 gap-x-5 m-4 mx-auto sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
             <li class="relative pb-4">
               <input wire:model="categoria" class="sr-only peer" type="radio" value="" name="todas" id="todas">
-              <label class="flex font-bold py-2 px-4 bg-white border border-gray-300 rounded-lg cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-yellow-600 peer-checked:ring-yellow-600 peer-checked:ring-2 peer-checked:border-transparent" for="todas">Todo</label>
+              <label class="flex font-bold py-2 px-4 bg-white border border-gray-300 rounded-lg cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-yellow-500 peer-checked:ring-yellow-500 peer-checked:ring-2 peer-checked:border-transparent" for="todas">Todo</label>
           
               <div class="absolute hidden w-5 h-5 peer-checked:block top-2 right-3">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -32,7 +32,7 @@
             @foreach ($categoriasMenu as $categoria)
                 <li class="relative pb-4">
                     <input wire:model="categoria" class="sr-only peer" type="radio" value="{{ $categoria->nombre }}" name="{{ $categoria->nombre }}" id="{{ $categoria->nombre }}">
-                    <label class="flex font-bold  py-2 px-4 bg-white border border-gray-300 rounded-lg cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-yellow-600 peer-checked:ring-yellow-600 peer-checked:ring-2 peer-checked:border-transparent" for="{{ $categoria->nombre }}">{{ $categoria->nombre }}</label>
+                    <label class="flex font-bold  py-2 px-4 bg-white border border-gray-300 rounded-lg cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-yellow-500 peer-checked:ring-yellow-500 peer-checked:ring-2 peer-checked:border-transparent" for="{{ $categoria->nombre }}">{{ $categoria->nombre }}</label>
                 
                     <div class="absolute hidden w-5 h-5 peer-checked:block top-2 right-3">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -46,9 +46,9 @@
 
         <div wire:poll class="max-w-xl mx-auto">
             @foreach ($categorias as $categoria)
-                <div class="mb-4 rounded-lg border-2 border-yellow-600">
+                <div class="mb-4 rounded-lg border-2 border-yellow-500">
                     <div class="pb-6">
-                        <div class="px-2 py-2 text-center text-white text-3xl font-bold font-acme bg-yellow-600">
+                        <div class="px-2 py-2 text-center text-white text-3xl font-bold font-acme bg-yellow-500">
                             {{ $categoria->nombre }}
                         </div>
                     </div>
@@ -66,7 +66,7 @@
                             {{-- <div class="grow pt-4">
                                 <div class="border-b-2 border-dashed border-gray-400"></div>
                             </div> --}}
-                            <div class="font-acme text-xl font-bold text-yellow-600">
+                            <div class="font-acme text-xl font-bold text-yellow-500">
                                 RD${{ number_format($producto->precio, 2, '.', ',') }}
                             </div>
                         </div>

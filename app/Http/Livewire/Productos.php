@@ -125,6 +125,8 @@ class Productos extends Component
     {
         Producto::where('id', $id)
             ->update(['estado' => 1]);
+
+        $this->reset();
     }
 
     public function inactivarShowModal($id)

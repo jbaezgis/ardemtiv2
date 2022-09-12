@@ -12,7 +12,7 @@
             </div>
           
           <h3 class='text-xl md:text-3xl mt-10'>Coming Soon</h3>
-          <p class="text-md md:text-xl mt-10">We are working to provide you with a quality service.</p>
+          <p class="text-md md:text-xl mt-10">We are working to provide you a quality service.</p>
         </div>
         <div class="flex flex-wrap mt-10 justify-center">
           <div class="m-3">

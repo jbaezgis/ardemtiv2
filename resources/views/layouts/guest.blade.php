@@ -35,14 +35,14 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     </head>
-    <body class="font-sans antialiased bg-gradient-to-r from-slate-900 via-slate-700 to-slate-800">
+    <body class="font-sans antialiased bg-black">
         {{-- <div class="flex justify-center py-4">
             <img class="h-32" src="{{ asset('images/logo-circle.png') }}" alt="Ardenti Logo">
         </div> --}}
         <x-jet-banner />
 
         <div class="min-h-screen">
-            @livewire('guest-menu')
+            {{-- @livewire('guest-menu') --}}
 
             <!-- Page Heading -->
             @if (isset($header))

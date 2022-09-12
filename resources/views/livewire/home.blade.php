@@ -1,78 +1,30 @@
 @section('title', __('Home'))
 <div>
-    
-    <div class="max-w-7xl mx-auto pt-6 px-2">
-        <div class="flex justify-center pt-4">
-            <div class="text-5xl font-anton text-white">
-                Menu
-            </div>
-        </div>
-        {{-- iconos --}}
-        {{-- <div class="flex gap-2 justify-center">
-            <div><img class="h-8" src="{{ asset('images/iconos/hamburguesa.png') }}" alt="Hamburguesa"></div>
-            <div><img class="h-8" src="{{ asset('images/iconos/burrito.png') }}" alt="burrito"></div>
-            <div><img class="h-8" src="{{ asset('images/iconos/beber.png') }}" alt="beber"></div>
-            <div><img class="h-8" src="{{ asset('images/iconos/pollo-frito.png') }}" alt="pollo-frito"></div>
-            <div><img class="h-8" src="{{ asset('images/iconos/sandwich.png') }}" alt="sandwich"></div>
-            <div><img class="h-8" src="{{ asset('images/iconos/taco.png') }}" alt="taco"></div>
-        </div> --}}
-
-        <ul class="grid grid-cols-2 gap-x-5 m-4 mx-auto sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-            <li class="relative pb-4">
-              <input wire:model="categoria" class="sr-only peer" type="radio" value="" name="todas" id="todas">
-              <label class="flex font-bold py-2 px-4 bg-white border border-gray-300 rounded-lg cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-yellow-500 peer-checked:ring-yellow-500 peer-checked:ring-2 peer-checked:border-transparent" for="todas">Todo</label>
-          
-              <div class="absolute hidden w-5 h-5 peer-checked:block top-2 right-3">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-              </div>
-            </li>
-
-            @foreach ($categoriasMenu as $categoria)
-                <li class="relative pb-4">
-                    <input wire:model="categoria" class="sr-only peer" type="radio" value="{{ $categoria->nombre }}" name="{{ $categoria->nombre }}" id="{{ $categoria->nombre }}">
-                    <label class="flex font-bold  py-2 px-4 bg-white border border-gray-300 rounded-lg cursor-pointer focus:outline-none hover:bg-gray-50 peer-checked:bg-yellow-500 peer-checked:ring-yellow-500 peer-checked:ring-2 peer-checked:border-transparent" for="{{ $categoria->nombre }}">{{ $categoria->nombre }}</label>
-                
-                    <div class="absolute hidden w-5 h-5 peer-checked:block top-2 right-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                    </div>
-                </li>
-                
-            @endforeach
-        </ul>
-
-        <div wire:poll class="max-w-xl mx-auto">
-            @foreach ($categorias as $categoria)
-                <div class="mb-4 rounded-lg border-2 border-yellow-500">
-                    <div class="pb-6">
-                        <div class="px-2 py-2 text-center text-white text-3xl font-bold font-acme bg-yellow-500">
-                            {{ $categoria->nombre }}
-                        </div>
-                    </div>
-
-                    @foreach ($productos->where('categoria', $categoria->id) as $producto)
-                        <div class="flex gap-2 justify-between px-4">
-                            <div class="mb-2 text-white">
-                                <div class="font-acme text-xl font-bold">
-                                {{ $producto->nombre }} 
-                                </div>
-                                <div class="text-sm">
-                                    {{ $producto->descripcion }} 
-                                </div>
-                            </div>
-                            {{-- <div class="grow pt-4">
-                                <div class="border-b-2 border-dashed border-gray-400"></div>
-                            </div> --}}
-                            <div class="font-acme text-xl font-bold text-yellow-500">
-                                RD${{ number_format($producto->precio, 2, '.', ',') }}
-                            </div>
-                        </div>
-                    @endforeach
+    <!-- component -->
+<div class="flex items-center justify-center h-screen bg-gray-200">
+    <div class="container">
+      <div class="bg-white rounded-lg shadow-lg p-5 md:p-20 mx-2">
+        <div class="text-center">
+            <div class="flex justify-center">
+                <div>
+                    <x-jet-application-mark />
                 </div>
-            @endforeach
+            </div>
+          
+          <h3 class='text-xl md:text-3xl mt-10'>Coming Soon</h3>
+          <p class="text-md md:text-xl mt-10">We are working to provide you with a quality service.</p>
         </div>
+        <div class="flex flex-wrap mt-10 justify-center">
+          <div class="m-3">
+            <a href="Https://wa.me/+18493412723" title="Quicktoolz On Facebook"
+               class="bg-white tracking-wide text-gray-800 font-bold rounded border-2 border-blue-600 hover:border-blue-600 hover:bg-blue-600 hover:text-white shadow-md py-2 px-6 inline-flex items-center">
+              <span class="mx-auto">Contact Us</span>
+            </a>
+          </div>
+          
+        </div>
+      </div>
     </div>
+  </div>
+    
 </div>
